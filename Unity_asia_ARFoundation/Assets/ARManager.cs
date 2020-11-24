@@ -20,4 +20,22 @@ public class ARManager : MonoBehaviour
     //碰撞資訊
     private List<ARRaycastHit> hits;
 
+    ///點擊
+    
+    private void Tap()
+	{
+        //判斷玩家是否點擊
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            pointMouse = Input.mousePosition;   //滑鼠座標 = 玩家的滑鼠座標
+            print(pointMouse);
+        }
+        //判斷射線是否打到物件
+        //生成物件
+	}
+
+    private void Update()
+    {
+        Tap();
+    }
 }
