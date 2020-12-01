@@ -1,6 +1,7 @@
 ﻿
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;  //引用ARFoundation API
+using UnityEngine.XR.ARSubsystems; //引用 Subsystems API
 using System.Collections.Generic;  //引用系統 一般 集合
 
 /// <summary>
@@ -31,8 +32,14 @@ public class ARManager : MonoBehaviour
             print(pointMouse);
         }
         //判斷射線是否打到物件
-        //生成物件
-	}
+        if (armanager.Raycast(pointMouse, hits, TrackableType.PlaneWithinPolygon))
+                    {
+            //生成物件(物件，座標，角度)
+           
+            Instantiate(obj, hits[0].pose.position, Quaternion.identity);
+        }
+
+    }
 
     private void Update()
     {
